@@ -1,265 +1,152 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rodrisa Ray Foundation</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<meta name="description" content="Rodrisa Ray Foundation - Digital Marketing Education & Quantum Computing Learning">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-
-<style>
-  html { scroll-behavior: smooth; }
-  .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-  .fade-up.show { opacity: 1; transform: translateY(0); }
-  .sparkle:hover::after {
-    content:"✨"; position:absolute; top:-10px; right:-10px; animation:sparkle 0.8s infinite;
-  }
-  @keyframes sparkle {
-    0% { transform: translate(0,0) scale(1); opacity: 1; }
-    50% { transform: translate(5px,-5px) scale(1.2); opacity: 0.7; }
-    100% { transform: translate(0,0) scale(1); opacity: 1; }
-  }
-  [data-theme="dark"] { background-color: #1a202c; color: #f7fafc; }
-  [data-theme="dark"] header, [data-theme="dark"] section, [data-theme="dark"] footer, [data-theme="dark"] .bg-white { background-color: #2d3748; color: #f7fafc; }
-  [data-theme="dark"] .bg-gray-50 { background-color: #1a202c; }
-  [data-theme="dark"] .bg-gray-100 { background-color: #2d3748; }
-  [data-theme="dark"] .bg-blue-50 { background-color: #2a4365; color: #f7fafc; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rodrisa Ray Digital Learning & Marketing</title>
+  <meta name="description" content="Rodrisa Ray - Digital Marketing, Education, and Quantum Computing Simulations">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans relative" data-theme="light">
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-<!-- Dark/Light Mode Toggle -->
-<div class="fixed top-4 right-4 z-50">
-  <button id="theme-toggle" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Dark Mode</button>
-</div>
-
-<!-- Header -->
-<header class="bg-white shadow fade-up" id="header">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="#" class="text-2xl font-bold text-blue-600">Rodrisa Ray Foundation</a>
-    <nav>
-      <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-500">About</a></li>
-        <li><a href="#services" class="hover:text-blue-500">Services</a></li>
-        <li><a href="#portfolio" class="hover:text-blue-500">Portfolio</a></li>
-        <li><a href="#blog" class="hover:text-blue-500">Blog</a></li>
-        <li><a href="#quantum" class="hover:text-blue-500">Quantum</a></li>
-        <li><a href="#education" class="hover:text-blue-500">Quiz</a></li>
-        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- Hero with Particle Background -->
-<section class="relative bg-blue-50 py-20 text-center fade-up">
-  <div id="tsparticles" class="absolute top-0 left-0 w-full h-full -z-10"></div>
-  <h1 class="text-4xl font-bold mb-4 relative z-10">Welcome to Rodrisa Ray Foundation</h1>
-  <p class="text-lg mb-6 relative z-10">Empowering youth with digital marketing skills, interactive learning, and quantum computing simulations.</p>
-  <a href="#contact" class="relative z-10 bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-transform transform hover:scale-105">Get Started</a>
-</section>
-
-<!-- About -->
-<section id="about" class="py-20 container mx-auto px-6 fade-up">
-  <h2 class="text-3xl font-bold mb-6">About Us</h2>
-  <p class="mb-4">The Rodrisa Ray Foundation equips learners with essential digital marketing knowledge and hands-on technology experiences, including quantum computing simulations. Our goal is to empower youth to innovate and succeed in the digital world.</p>
-  <p>We focus on interactive, engaging learning, combining educational cards, quizzes, and practical projects to build skills and confidence.</p>
-</section>
-
-<!-- Services -->
-<section id="services" class="bg-gray-100 py-20 container mx-auto px-6 fade-up">
-  <h2 class="text-3xl font-bold mb-6 text-center">Our Services</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative">
-      <div class="text-blue-600 text-4xl mb-4 animate-bounce">💻</div>
-      <h3 class="font-bold text-xl mb-2">Digital Marketing Training</h3>
-      <p>Learn SEO, content strategy, and social media campaigns with real-world projects.</p>
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-600">Rodrisa Ray</a>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#about" class="hover:text-blue-500">About</a></li>
+          <li><a href="#services" class="hover:text-blue-500">Services</a></li>
+          <li><a href="#portfolio" class="hover:text-blue-500">Portfolio</a></li>
+          <li><a href="#blog" class="hover:text-blue-500">Blog</a></li>
+          <li><a href="#quantum" class="hover:text-blue-500">Quantum</a></li>
+          <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative">
-      <div class="text-blue-600 text-4xl mb-4 animate-bounce">🧪</div>
-      <h3 class="font-bold text-xl mb-2">Quantum Computing Basics</h3>
-      <p>Explore qubits, superposition, and quantum gates through interactive simulations and quizzes.</p>
-    </div>
-    <div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative">
-      <div class="text-blue-600 text-4xl mb-4 animate-bounce">📝</div>
-      <h3 class="font-bold text-xl mb-2">Portfolio & Blog Guidance</h3>
-      <p>Build portfolios and blogs to showcase your skills and empower your digital presence.</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- Portfolio -->
-<section id="portfolio" class="py-20 container mx-auto px-6 fade-up">
-  <h2 class="text-3xl font-bold mb-6">Portfolio</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-white p-4 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle">Project 1 - Marketing Campaign</div>
-    <div class="bg-white p-4 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle">Project 2 - SEO Optimization</div>
-    <div class="bg-white p-4 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle">Project 3 - Interactive Learning Blog</div>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section class="bg-blue-50 py-20 text-center">
+    <h1 class="text-4xl font-bold mb-4">Welcome to Rodrisa Ray</h1>
+    <p class="text-lg mb-6">Empowering youth with Digital Marketing, Education, and Quantum Computing simulations</p>
+    <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Get Started</a>
+  </section>
 
-<!-- Blog -->
-<section id="blog" class="bg-blue-50 py-20 container mx-auto px-6 fade-up">
-  <h2 class="text-3xl font-bold mb-6">Blog & Resources</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle"><a href="#">Digital Marketing Tips</a></div>
-    <div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle"><a href="#">Quantum Computing Basics</a></div>
-    <div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle"><a href="#">Mini Quizzes & Exercises</a></div>
-  </div>
-</section>
+  <!-- About -->
+  <section id="about" class="py-20 container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">About Us</h2>
+    <p class="mb-4">Rodrisa Ray is an initiative combining digital marketing education with interactive learning. We provide guidance in SEO, content creation, and social media, while also exploring cutting-edge topics like quantum computing.</p>
+    <p>Our mission is to equip learners and businesses with practical skills and innovative thinking for the digital world.</p>
+  </section>
 
-<!-- Quantum Simulator -->
-<section id="quantum" class="py-20 bg-gray-100 text-center fade-up">
-  <h2 class="text-3xl font-bold mb-4">Explore Quantum Computing</h2>
-  <p class="mb-6">Interact with qubits, superposition, and quantum gates directly in your browser!</p>
-  <div class="relative w-full max-w-4xl mx-auto" style="padding-top:62.5%;">
-    <iframe src="https://quantumjavascript.app/simulator" class="absolute top-0 left-0 w-full h-full border rounded shadow" frameborder="0"></iframe>
-  </div>
-</section>
-
-<!-- Interactive Quantum Quiz -->
-<section id="education" class="py-20 container mx-auto px-6 fade-up">
-  <h2 class="text-3xl font-bold mb-6 text-center">Interactive Quantum Quiz</h2>
-  <div class="w-full max-w-2xl mx-auto mb-6 bg-gray-300 rounded-full h-6">
-    <div id="progress-bar" class="bg-blue-600 h-6 rounded-full w-0 transition-all duration-500"></div>
-  </div>
-  <div id="quiz-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-  <p class="text-center mt-6 font-bold text-xl">Score: <span id="score">0</span>/<span id="total"></span></p>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="bg-blue-50 py-20 container mx-auto px-6 fade-up">
-  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-  <form action="#" method="POST" class="grid grid-cols-1 gap-6 max-w-xl mx-auto">
-    <input type="text" name="name" placeholder="Your Name" class="p-3 rounded border border-gray-300">
-    <input type="email" name="email" placeholder="Your Email" class="p-3 rounded border border-gray-300">
-    <textarea name="message" placeholder="Your Message" class="p-3 rounded border border-gray-300"></textarea>
-    <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 sparkle">Send Message</button>
-  </form>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-10 fade-up">
-  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div>
-      <h3 class="font-bold mb-4">Rodrisa Ray Foundation</h3>
-      <p>Empowering youth with digital skills, technology education, and interactive learning.</p>
-    </div>
-    <div>
-      <h3 class="font-bold mb-4">Quick Links</h3>
-      <ul>
-        <li><a href="#about" class="hover:text-blue-400">About</a></li>
-        <li><a href="#services" class="hover:text-blue-400">Services</a></li>
-        <li><a href="#portfolio" class="hover:text-blue-400">Portfolio</a></li>
-        <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-bold mb-4">Subscribe</h3>
-      <form action="#" method="POST" class="flex flex-col space-y-3">
-        <input type="email" placeholder="Your Email" class="p-3 rounded border border-gray-300">
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 sparkle">Subscribe</button>
-      </form>
-    </div>
-  </div>
-  <div class="text-center mt-6">&copy; 2025 Rodrisa Ray Foundation. All rights reserved.</div>
-</footer>
-
-<script>
-  // Dark/Light Mode
-  const toggleBtn=document.getElementById('theme-toggle');
-  const body=document.body;
-  const savedTheme=localStorage.getItem('theme')||'light';
-  body.setAttribute('data-theme',savedTheme);
-  toggleBtn.textContent=savedTheme==='light'?'Dark Mode':'Light Mode';
-  toggleBtn.addEventListener('click',()=>{
-    const newTheme=body.getAttribute('data-theme')==='light'?'dark':'light';
-    body.setAttribute('data-theme',newTheme);
-    localStorage.setItem('theme',newTheme);
-    toggleBtn.textContent=newTheme==='light'?'Dark Mode':'Light Mode';
-  });
-
-  // Fade-up animations
-  const faders=document.querySelectorAll('.fade-up');
-  const observer=new IntersectionObserver((entries,observer)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target);}
-    });
-  },{threshold:0.2});
-  faders.forEach(fader=>observer.observe(fader));
-
-  // Particle Background
-  tsParticles.load("tsparticles", {
-    fullScreen: { enable: true, zIndex: -1 },
-    particles: {
-      number: { value: 60 },
-      color: { value: ["#3b82f6","#60a5fa","#93c5fd"] },
-      shape: { type: "circle" },
-      opacity: { value: 0.7 },
-      size: { value: { min: 2, max: 6 } },
-      move: { enable: true, speed: 1, outModes: "bounce" },
-      links: { enable: true, distance: 120, color: "#60a5fa", opacity: 0.3, width: 1 }
-    },
-    interactivity: {
-      events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
-      modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
-    },
-    detectRetina: true
-  });
-
-  // Quiz Logic
-  const quizData=[
-    {question:"A qubit can be 0, 1, or both at the same time.",answer:"True",difficulty:"Easy"},
-    {question:"Entanglement links two qubits so one affects the other.",answer:"True",difficulty:"Easy"},
-    {question:"Quantum gates are identical to classical logic gates.",answer:"False",difficulty:"Medium"},
-    {question:"Superposition allows multiple states simultaneously.",answer:"True",difficulty:"Medium"},
-    {question:"Measuring a qubit does not affect its state.",answer:"False",difficulty:"Hard"},
-    {question:"Quantum teleportation transmits matter instantly.",answer:"False",difficulty:"Hard"},
-    {question:"The Hadamard gate creates superposition.",answer:"True",difficulty:"Hard"}
-  ];
-  const quizContainer=document.getElementById('quiz-cards');
-  const progressBar=document.getElementById('progress-bar');
-  const scoreEl=document.getElementById('score');
-  const totalEl=document.getElementById('total');
-  let score=0,answered=0;
-  const sortedQuiz=quizData.sort((a,b)=>{const order={Easy:1,Medium:2,Hard:3};return order[a.difficulty]-order[b.difficulty];});
-  totalEl.textContent=sortedQuiz.length;
-
-  sortedQuiz.forEach((q,index)=>{
-    const card=document.createElement('div');
-    card.className='bg-white p-6 rounded shadow transition-transform duration-300 hover:scale-105 fade-up relative sparkle';
-    card.style.transitionDelay=`${0.1*index}s`;
-    card.innerHTML=`
-      <h3 class="font-bold text-xl mb-2">Question ${index+1} (${q.difficulty})</h3>
-      <p>${q.question}</p>
-      <div class="mt-2 space-x-2">
-        <button class="quiz-btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">True</button>
-        <button class="quiz-btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">False</button>
+  <!-- Services -->
+  <section id="services" class="bg-gray-100 py-20 container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold text-xl mb-2">SEO & Content Strategy</h3>
+        <p>Optimize your content for search engines and grow your digital presence.</p>
       </div>
-    `;
-    quizContainer.appendChild(card);
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold text-xl mb-2">Social Media Marketing</h3>
+        <p>Manage campaigns, engage audiences, and build brand visibility.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold text-xl mb-2">Educational Content</h3>
+        <p>Interactive lessons, mini-quizzes, and tutorials in English and tech topics.</p>
+      </div>
+    </div>
+  </section>
 
-    const buttons=card.querySelectorAll('.quiz-btn');
-    buttons.forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const correct=btn.textContent===q.answer;
-        card.classList.add(correct?'bg-green-200':'bg-red-200','scale-105');
-        setTimeout(()=>card.classList.remove('bg-green-200','bg-red-200','scale-105'),800);
-        const oldScore=score;
-        if(correct) score++;
-        let current=oldScore;
-        const animate=setInterval(()=>{
-          if(current<score){current++;scoreEl.textContent=current;} else{clearInterval(animate);}
-        },150);
-        answered++;
-        progressBar.style.width=(answered/sortedQuiz.length*100)+'%';
-        btn.parentElement.querySelectorAll('button').forEach(b=>b.disabled=true);
-        if(answered===sortedQuiz.length){confetti({particleCount:200,spread:80,origin:{y:0.6}});alert('🎉 Quiz Completed! Well done! 🎉');}
-      });
-    });
-  });
-</script>
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-20 container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">Portfolio</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded shadow">Project 1 - Marketing Campaign</div>
+      <div class="bg-white p-4 rounded shadow">Project 2 - SEO Optimization</div>
+      <div class="bg-white p-4 rounded shadow">Project 3 - Educational Blog Series</div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="bg-blue-50 py-20 container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">Blog & Resources</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <li class="bg-white p-6 rounded shadow"><a href="#">Digital Marketing Tips</a></li>
+      <li class="bg-white p-6 rounded shadow"><a href="#">Learning English Online</a></li>
+      <li class="bg-white p-6 rounded shadow"><a href="#">Mini Quizzes & Exercises</a></li>
+    </ul>
+  </section>
+
+  <!-- Quantum Computing Simulation -->
+  <section id="quantum" class="py-20 bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold mb-4">Explore Quantum Computing</h2>
+    <p class="mb-6">Interact with qubits, superposition, and basic quantum gates in your browser!</p>
+    <iframe src="https://quantumjavascript.app/simulator" width="800" height="500" class="mx-auto border rounded shadow"></iframe>
+  </section>
+
+  <!-- Educational Cards + Mini Quizzes -->
+  <section id="education" class="py-20 container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6 text-center">Interactive Learning</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold text-xl mb-2">Qubit Basics</h3>
+        <p>A qubit can be 0, 1, or both at the same time! Try to guess the outcome.</p>
+        <button onclick="alert('Correct! Qubits can exist in superposition.')" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Check Answer</button>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold text-xl mb-2">Entanglement</h3>
+        <p>Two qubits can be linked, so the state of one affects the other instantly.</p>
+        <button onclick="alert('Correct! That is entanglement.')" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Check Answer</button>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold text-xl mb-2">Quantum Gate</h3>
+        <p>Gates manipulate qubits’ states, similar to logic gates in classical computing.</p>
+        <button onclick="alert('Correct! Quantum gates change qubit states.')" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Check Answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-blue-50 py-20 container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+    <form action="#" method="POST" class="grid grid-cols-1 gap-6 max-w-xl mx-auto">
+      <input type="text" name="name" placeholder="Your Name" class="p-3 rounded border border-gray-300">
+      <input type="email" name="email" placeholder="Your Email" class="p-3 rounded border border-gray-300">
+      <textarea name="message" placeholder="Your Message" class="p-3 rounded border border-gray-300"></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="font-bold mb-4">Rodrisa Ray</h3>
+        <p>Empowering youth with digital skills, education, and interactive learning.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4">Quick Links</h3>
+        <ul>
+          <li><a href="#about" class="hover:text-blue-400">About</a></li>
+          <li><a href="#services" class="hover:text-blue-400">Services</a></li>
+          <li><a href="#portfolio" class="hover:text-blue-400">Portfolio</a></li>
+          <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-4">Subscribe</h3>
+        <form action="#" method="POST" class="flex flex-col space-y-3">
+          <input type="email" placeholder="Your Email" class="p-3 rounded border border-gray-300">
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="text-center mt-6">&copy; 2025 Rodrisa Ray. All rights reserved.</div>
+  </footer>
+
 </body>
 </html>
+✅ Features
