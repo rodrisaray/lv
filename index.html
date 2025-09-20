@@ -6,9 +6,9 @@
 <title>Rodrisa Ray - Digital Marketing & Interactive Learning</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<!-- TailwindCSS CDN -->
+<!-- TailwindCSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Animate on Scroll (AOS) -->
+<!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -18,25 +18,36 @@
   .quiz-card { transition: transform 0.3s; }
   .quiz-card:hover { transform: scale(1.05); }
   .confetti { pointer-events: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 9999; }
+  /* Sparkles */
+  .sparkle { position: absolute; width: 5px; height: 5px; background: #FFD700; border-radius: 50%; opacity: 0; animation: sparkle 2s infinite; }
+  @keyframes sparkle {
+    0% { opacity: 0; transform: translate(0,0) scale(0.5); }
+    50% { opacity: 1; transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(1); }
+    100% { opacity: 0; transform: translate(0,0) scale(0.5); }
+  }
 </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 relative overflow-x-hidden">
 
 <!-- Particle Background -->
 <div id="particles-js" class="absolute inset-0 -z-10"></div>
 
 <!-- Dark/Light Mode Toggle -->
-<div class="fixed top-4 right-4">
+<div class="fixed top-4 right-4 z-50">
   <button id="theme-toggle" class="bg-gray-200 dark:bg-gray-700 p-2 rounded shadow">
     Toggle Dark/Light
   </button>
 </div>
 
 <!-- Hero Section -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-4" data-aos="fade-up">
-  <h1 class="text-5xl font-bold mb-4">Rodrisa Ray</h1>
-  <p class="text-xl mb-6 max-w-xl">Empowering youth with Digital Marketing & Interactive Learning.</p>
-  <a href="#services" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition">Explore Services</a>
+<section class="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden" data-aos="fade-up">
+  <h1 class="text-5xl font-bold mb-4 relative z-10">Rodrisa Ray</h1>
+  <p class="text-xl mb-6 max-w-xl relative z-10">Empowering youth with Digital Marketing & Interactive Learning.</p>
+  <a href="#services" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition relative z-10">Explore Services</a>
+  <!-- Sparkles -->
+  <div class="absolute inset-0">
+    <div id="hero-sparkles"></div>
+  </div>
 </section>
 
 <!-- About Section -->
@@ -66,24 +77,24 @@
 </section>
 
 <!-- Portfolio Section -->
-<section id="portfolio" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-up">
+<section id="portfolio" class="py-20 px-4 max-w-6xl mx-auto relative" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-12 text-center">Youth Empowerment Portfolio</h2>
   <div class="grid md:grid-cols-3 gap-8">
-    <div class="rounded-lg overflow-hidden shadow-lg">
+    <div class="rounded-lg overflow-hidden shadow-lg relative portfolio-card">
       <img src="https://source.unsplash.com/400x300/?students,team" alt="Project 1" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="font-semibold text-lg mb-2">Social Media Campaign</h3>
         <p>Guided youth to create impactful campaigns for small local businesses.</p>
       </div>
     </div>
-    <div class="rounded-lg overflow-hidden shadow-lg">
+    <div class="rounded-lg overflow-hidden shadow-lg relative portfolio-card">
       <img src="https://source.unsplash.com/400x300/?learning,computer" alt="Project 2" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="font-semibold text-lg mb-2">Interactive Learning App</h3>
         <p>Designed an app to teach digital skills through gamified quizzes and badges.</p>
       </div>
     </div>
-    <div class="rounded-lg overflow-hidden shadow-lg">
+    <div class="rounded-lg overflow-hidden shadow-lg relative portfolio-card">
       <img src="https://source.unsplash.com/400x300/?coding,students" alt="Project 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="font-semibold text-lg mb-2">Youth Blog Platform</h3>
@@ -91,42 +102,26 @@
       </div>
     </div>
   </div>
+  <!-- Sparkles -->
+  <div class="absolute inset-0 pointer-events-none" id="portfolio-sparkles"></div>
 </section>
 
-<!-- Blog Section -->
+<!-- Dynamic Blog Section -->
 <section id="blog" class="py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-right">
   <h2 class="text-3xl font-bold mb-12 text-center">Youth Empowerment Blog</h2>
-  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <h3 class="font-semibold text-xl mb-2">5 Digital Skills Every Teen Should Learn</h3>
-      <p>Practical tips to help youth master skills that matter in today’s digital economy.</p>
-      <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <h3 class="font-semibold text-xl mb-2">Gamified Learning for Maximum Engagement</h3>
-      <p>How interactive quizzes and rewards can boost learning motivation for students.</p>
-      <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <h3 class="font-semibold text-xl mb-2">Building Your First Digital Portfolio</h3>
-      <p>Step-by-step guide for young creators to showcase projects and get recognized.</p>
-      <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>
-    </div>
+  <div id="blog-container" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- Blog posts loaded dynamically -->
   </div>
 </section>
 
-<!-- Interactive Quiz -->
+<!-- Interactive Multi-Level Quiz -->
 <section id="quiz" class="py-20 px-4 max-w-3xl mx-auto text-center" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-8">Test Your Knowledge!</h2>
   <div id="quiz-card" class="quiz-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-    <p id="quiz-question" class="mb-4 text-lg">What is the main goal of digital marketing?</p>
-    <div class="grid gap-4">
-      <button class="quiz-option bg-blue-500 text-white px-4 py-2 rounded" data-correct="true">Reach & engage audience</button>
-      <button class="quiz-option bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded">Only sell products</button>
-      <button class="quiz-option bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded">Make social media posts</button>
-    </div>
+    <p id="quiz-question" class="mb-4 text-lg"></p>
+    <div id="quiz-options" class="grid gap-4"></div>
     <div class="mt-4">
-      <p id="quiz-progress">Progress: 0/1</p>
+      <p id="quiz-progress">Progress: 0/0</p>
       <p id="quiz-score">Score: 0</p>
     </div>
   </div>
@@ -166,30 +161,106 @@
     }
   });
 
-  // Quiz Functionality
-  const options = document.querySelectorAll('.quiz-option');
-  let score = 0;
-  let progress = 0;
-  options.forEach(option => {
-    option.addEventListener('click', () => {
-      if(option.dataset.correct === "true") {
-        score += 1;
-        confetti();
-      }
-      progress += 1;
-      document.getElementById('quiz-progress').innerText = `Progress: ${progress}/1`;
-      document.getElementById('quiz-score').innerText = `Score: ${score}`;
-    });
-  });
-
   // Confetti
   const confettiCanvas = document.getElementById('confetti-canvas');
-  function confetti() {
+  function confettiEffect() {
     confettiCanvas.style.display = 'block';
     confetti.create(confettiCanvas, { resize: true })({ particleCount: 100, spread: 70 });
     setTimeout(() => confettiCanvas.style.display = 'none', 2000);
   }
+
+  // Multi-Level Quiz
+  const quizData = [
+    {
+      question: "What is the main goal of digital marketing?",
+      options: ["Reach & engage audience", "Only sell products", "Make social media posts"],
+      correct: 0
+    },
+    {
+      question: "Which platform is best for professional networking?",
+      options: ["Instagram", "LinkedIn", "TikTok"],
+      correct: 1
+    },
+    {
+      question: "What does SEO stand for?",
+      options: ["Search Engine Optimization", "Social Engagement Online", "Secure Email Operation"],
+      correct: 0
+    }
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  const questionEl = document.getElementById('quiz-question');
+  const optionsEl = document.getElementById('quiz-options');
+  const progressEl = document.getElementById('quiz-progress');
+  const scoreEl = document.getElementById('quiz-score');
+
+  function loadQuestion() {
+    if(currentQuestion >= quizData.length) {
+      questionEl.innerText = "Quiz Completed!";
+      optionsEl.innerHTML = "";
+      return;
+    }
+    const q = quizData[currentQuestion];
+    questionEl.innerText = q.question;
+    optionsEl.innerHTML = "";
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition';
+      btn.innerText = opt;
+      btn.addEventListener('click', () => {
+        if(idx === q.correct) { score++; confettiEffect(); }
+        currentQuestion++;
+        loadQuestion();
+        progressEl.innerText = `Progress: ${currentQuestion}/${quizData.length}`;
+        scoreEl.innerText = `Score: ${score}`;
+      });
+      optionsEl.appendChild(btn);
+    });
+    progressEl.innerText = `Progress: ${currentQuestion}/${quizData.length}`;
+    scoreEl.innerText = `Score: ${score}`;
+  }
+  loadQuestion();
+
+  // Sparkles
+  function createSparkles(containerId, count = 30) {
+    const container = document.getElementById(containerId);
+    for(let i=0;i<count;i++){
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.setProperty('--x', Math.random()*200-100);
+      sparkle.style.setProperty('--y', Math.random()*200-100);
+      sparkle.style.top = Math.random()*100 + '%';
+      sparkle.style.left = Math.random()*100 + '%';
+      sparkle.style.animationDelay = `${Math.random()*2}s`;
+      container.appendChild(sparkle);
+    }
+  }
+  createSparkles('hero-sparkles', 40);
+  createSparkles('portfolio-sparkles', 30);
+
+  // Dynamic Blog Fetching
+  const blogContainer = document.getElementById('blog-container');
+  async function fetchBlogs() {
+    try {
+      const res = await fetch('https://api.npoint.io/6e2a6f7b6f9e0f0c3f78'); // Sample JSON API
+      const blogs = await res.json();
+      blogs.forEach(blog => {
+        const card = document.createElement('div');
+        card.className = 'bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition';
+        card.innerHTML = `<h3 class="font-semibold text-xl mb-2">${blog.title}</h3>
+                          <p>${blog.description}</p>
+                          <a href="${blog.url}" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>`;
+        blogContainer.appendChild(card);
+      });
+    } catch(e) {
+      blogContainer.innerHTML = "<p class='col-span-3 text-center'>Failed to load blogs.</p>";
+    }
+  }
+  fetchBlogs();
 </script>
 </body>
 </html>
+
 
