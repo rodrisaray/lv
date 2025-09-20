@@ -1,241 +1,195 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rodrisa Ray Foundation</title>
+<title>Rodrisa Ray - Digital Marketing & Interactive Learning</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- TailwindCSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<!-- Animate on Scroll (AOS) -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <style>
-html{scroll-behavior:smooth}
-.fade-up{opacity:0;transform:translateY(40px);transition:all 0.8s ease-out}
-.fade-up.show{opacity:1;transform:translateY(0)}
-.sparkle:hover::after{content:"✨";position:absolute;top:-10px;right:-10px;animation:sparkle 0.8s infinite}
-@keyframes sparkle{0%{transform:translate(0,0) scale(1);opacity:1}50%{transform:translate(5px,-5px) scale(1.2);opacity:0.7}100%{transform:translate(0,0) scale(1);opacity:1}}
-[data-theme="dark"]{background-color:#1a202c;color:#f7fafc}
-[data-theme="dark"] header, [data-theme="dark"] section, [data-theme="dark"] footer, [data-theme="dark"] .bg-white{background-color:#2d3748;color:#f7fafc}
-[data-theme="dark"] .bg-gray-50{background-color:#1a202c}
-[data-theme="dark"] .bg-gray-100{background-color:#2d3748}
-[data-theme="dark"] .bg-blue-50{background-color:#2a4365;color:#f7fafc}
+  body { font-family: 'Roboto', sans-serif; transition: background 0.3s, color 0.3s; }
+  .dark-mode { background: #121212; color: #f5f5f5; }
+  .quiz-card { transition: transform 0.3s; }
+  .quiz-card:hover { transform: scale(1.05); }
+  .confetti { pointer-events: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 9999; }
 </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans relative" data-theme="light">
+<body class="bg-white text-gray-900">
+
+<!-- Particle Background -->
+<div id="particles-js" class="absolute inset-0 -z-10"></div>
 
 <!-- Dark/Light Mode Toggle -->
-<div class="fixed top-4 right-4 z-50">
-<button id="theme-toggle" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Dark Mode</button>
+<div class="fixed top-4 right-4">
+  <button id="theme-toggle" class="bg-gray-200 dark:bg-gray-700 p-2 rounded shadow">
+    Toggle Dark/Light
+  </button>
 </div>
 
-<!-- Header -->
-<header class="bg-white shadow fade-up" id="header">
-<div class="container mx-auto px-6 py-4 flex justify-between items-center">
-<a href="#" class="text-2xl font-bold text-blue-600">Rodrisa Ray Foundation</a>
-<nav>
-<ul class="flex space-x-6">
-<li><a href="#about" class="hover:text-blue-500">About</a></li>
-<li><a href="#services" class="hover:text-blue-500">Services</a></li>
-<li><a href="#portfolio" class="hover:text-blue-500">Portfolio</a></li>
-<li><a href="#blog" class="hover:text-blue-500">Blog</a></li>
-<li><a href="#education" class="hover:text-blue-500">Quiz</a></li>
-<li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-</ul>
-</nav>
-</div>
-</header>
-
-<!-- Hero with Particle Background -->
-<section class="relative bg-blue-50 py-20 text-center fade-up">
-<div id="tsparticles" class="absolute top-0 left-0 w-full h-full -z-10"></div>
-<h1 class="text-4xl font-bold mb-4 relative z-10">Welcome to Rodrisa Ray Foundation</h1>
-<p class="text-lg mb-6 relative z-10">Empowering youth with digital marketing skills, interactive learning, and portfolio-building through gamified education.</p>
-<a href="#contact" class="relative z-10 bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-transform transform hover:scale-105">Get Started</a>
+<!-- Hero Section -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-4" data-aos="fade-up">
+  <h1 class="text-5xl font-bold mb-4">Rodrisa Ray</h1>
+  <p class="text-xl mb-6 max-w-xl">Empowering youth with Digital Marketing & Interactive Learning.</p>
+  <a href="#services" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition">Explore Services</a>
 </section>
 
-<!-- About -->
-<section id="about" class="py-20 container mx-auto px-6 fade-up">
-<h2 class="text-3xl font-bold mb-6">About Us</h2>
-<p class="mb-4">Rodrisa Ray Foundation equips learners with essential digital marketing knowledge, interactive simulations, and portfolio/blog guidance to empower youth in the digital world.</p>
-<p>Through gamified learning, educational cards, and mini-quizzes, we nurture confidence, skills, and creativity for future digital leaders.</p>
+<!-- About Section -->
+<section id="about" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-right">
+  <h2 class="text-3xl font-bold mb-6">About Us</h2>
+  <p class="mb-4">Rodrisa Ray is a platform dedicated to educating youth in digital marketing and interactive learning. Our mission is to inspire creativity, critical thinking, and real-world skills that empower the next generation of digital leaders.</p>
+  <p>We combine innovative courses, interactive quizzes, and hands-on projects to create a fun, engaging learning experience for students and young professionals worldwide.</p>
 </section>
 
-<!-- Services -->
-<section id="services" class="bg-gray-100 py-20 container mx-auto px-6 fade-up">
-<h2 class="text-3xl font-bold mb-6 text-center">Our Services</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative">
-<div class="text-blue-600 text-4xl mb-4 animate-bounce">💻</div>
-<h3 class="font-bold text-xl mb-2">Digital Marketing Training</h3>
-<p>Learn SEO, content strategy, and social media campaigns with real-world projects.</p>
-</div>
-<div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative">
-<div class="text-blue-600 text-4xl mb-4 animate-bounce">🧪</div>
-<h3 class="font-bold text-xl mb-2">Interactive Learning</h3>
-<p>Engage with simulations and quizzes to master complex digital and tech concepts.</p>
-</div>
-<div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative">
-<div class="text-blue-600 text-4xl mb-4 animate-bounce">📝</div>
-<h3 class="font-bold text-xl mb-2">Portfolio & Blog Guidance</h3>
-<p>Build and showcase your work to empower your digital presence and opportunities.</p>
-</div>
-</div>
+<!-- Services Section -->
+<section id="services" class="py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-left">
+  <h2 class="text-3xl font-bold mb-12 text-center">Our Services</h2>
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition">
+      <h3 class="text-xl font-semibold mb-2">Digital Marketing Courses</h3>
+      <p>Learn SEO, social media, content marketing, and analytics with interactive lessons designed for youth.</p>
+    </div>
+    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition">
+      <h3 class="text-xl font-semibold mb-2">Interactive Quizzes</h3>
+      <p>Test your knowledge with multi-level quizzes featuring progress bars, animated scores, and confetti celebrations.</p>
+    </div>
+    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition">
+      <h3 class="text-xl font-semibold mb-2">Portfolio & Mentorship</h3>
+      <p>Showcase your projects, get feedback, and join a community of like-minded youth eager to grow their digital skills.</p>
+    </div>
+  </div>
 </section>
 
-<!-- Portfolio -->
-<section id="portfolio" class="py-20 container mx-auto px-6 fade-up">
-<h2 class="text-3xl font-bold mb-6">Portfolio</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-white p-4 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle">Marketing Campaign Example</div>
-<div class="bg-white p-4 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle">SEO Optimization Project</div>
-<div class="bg-white p-4 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle">Interactive Learning Blog</div>
-</div>
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-12 text-center">Youth Empowerment Portfolio</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img src="https://source.unsplash.com/400x300/?students,team" alt="Project 1" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg mb-2">Social Media Campaign</h3>
+        <p>Guided youth to create impactful campaigns for small local businesses.</p>
+      </div>
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img src="https://source.unsplash.com/400x300/?learning,computer" alt="Project 2" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg mb-2">Interactive Learning App</h3>
+        <p>Designed an app to teach digital skills through gamified quizzes and badges.</p>
+      </div>
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img src="https://source.unsplash.com/400x300/?coding,students" alt="Project 3" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="font-semibold text-lg mb-2">Youth Blog Platform</h3>
+        <p>Created a space for students to share projects, ideas, and inspire peers globally.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Blog -->
-<section id="blog" class="bg-blue-50 py-20 container mx-auto px-6 fade-up">
-<h2 class="text-3xl font-bold mb-6">Blog & Resources</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle"><a href="#">Digital Marketing Tips</a></div>
-<div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle"><a href="#">Quantum Computing Basics</a></div>
-<div class="bg-white p-6 rounded shadow hover:shadow-xl hover:scale-105 transition-transform duration-300 fade-up relative sparkle"><a href="#">Mini Quizzes & Exercises</a></div>
-</div>
+<!-- Blog Section -->
+<section id="blog" class="py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-right">
+  <h2 class="text-3xl font-bold mb-12 text-center">Youth Empowerment Blog</h2>
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+      <h3 class="font-semibold text-xl mb-2">5 Digital Skills Every Teen Should Learn</h3>
+      <p>Practical tips to help youth master skills that matter in today’s digital economy.</p>
+      <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+      <h3 class="font-semibold text-xl mb-2">Gamified Learning for Maximum Engagement</h3>
+      <p>How interactive quizzes and rewards can boost learning motivation for students.</p>
+      <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+      <h3 class="font-semibold text-xl mb-2">Building Your First Digital Portfolio</h3>
+      <p>Step-by-step guide for young creators to showcase projects and get recognized.</p>
+      <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>
+    </div>
+  </div>
 </section>
 
 <!-- Interactive Quiz -->
-<section id="education" class="py-20 container mx-auto px-6 fade-up">
-<h2 class="text-3xl font-bold mb-6 text-center">Interactive Quiz</h2>
-<div class="w-full max-w-2xl mx-auto mb-6 bg-gray-300 rounded-full h-6">
-<div id="progress-bar" class="bg-blue-600 h-6 rounded-full w-0 transition-all duration-500"></div>
-</div>
-<div id="quiz-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-<p class="text-center mt-6 font-bold text-xl">Score: <span id="score">0</span>/<span id="total"></span></p>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="bg-blue-50 py-20 container mx-auto px-6 fade-up">
-<h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-<form action="#" method="POST" class="grid grid-cols-1 gap-6 max-w-xl mx-auto">
-<input type="text" name="name" placeholder="Your Name" class="p-3 rounded border border-gray-300">
-<input type="email" name="email" placeholder="Your Email" class="p-3 rounded border border-gray-300">
-<textarea name="message" placeholder="Your Message" class="p-3 rounded border border-gray-300"></textarea>
-<button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 sparkle">Send Message</button>
-</form>
+<section id="quiz" class="py-20 px-4 max-w-3xl mx-auto text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-8">Test Your Knowledge!</h2>
+  <div id="quiz-card" class="quiz-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+    <p id="quiz-question" class="mb-4 text-lg">What is the main goal of digital marketing?</p>
+    <div class="grid gap-4">
+      <button class="quiz-option bg-blue-500 text-white px-4 py-2 rounded" data-correct="true">Reach & engage audience</button>
+      <button class="quiz-option bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded">Only sell products</button>
+      <button class="quiz-option bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded">Make social media posts</button>
+    </div>
+    <div class="mt-4">
+      <p id="quiz-progress">Progress: 0/1</p>
+      <p id="quiz-score">Score: 0</p>
+    </div>
+  </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-10 fade-up">
-<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-<div>
-<h3 class="font-bold mb-4">Rodrisa Ray Foundation</h3>
-<p>Empowering youth with digital skills, technology education, and interactive learning.</p>
-</div>
-<div>
-<h3 class="font-bold mb-4">Quick Links</h3>
-<ul>
-<li><a href="#about" class="hover:text-blue-400">About</a></li>
-<li><a href="#services" class="hover:text-blue-400">Services</a></li>
-<li><a href="#portfolio" class="hover:text-blue-400">Portfolio</a></li>
-<li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-bold mb-4">Subscribe</h3>
-<form action="#" method="POST" class="flex flex-col space-y-3">
-<input type="email" placeholder="Your Email" class="p-3 rounded border border-gray-300">
-<button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 sparkle">Subscribe</button>
-</form>
-</div>
-</div>
-<div class="text-center mt-6">&copy; 2025 Rodrisa Ray Foundation. All rights reserved.</div>
+<footer class="py-10 text-center bg-gray-200 dark:bg-gray-800 mt-20">
+  <p>© 2025 Rodrisa Ray. Empowering Youth in Digital Marketing & Interactive Learning.</p>
 </footer>
 
+<!-- Confetti Canvas -->
+<canvas id="confetti-canvas" class="confetti"></canvas>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
+  // Initialize AOS
+  AOS.init();
+
   // Dark/Light Mode
-  const toggleBtn=document.getElementById('theme-toggle');
-  const body=document.body;
-  const savedTheme=localStorage.getItem('theme')||'light';
-  body.setAttribute('data-theme',savedTheme);
-  toggleBtn.textContent=savedTheme==='light'?'Dark Mode':'Light Mode';
-  toggleBtn.addEventListener('click',()=>{
-    const newTheme=body.getAttribute('data-theme')==='light'?'dark':'light';
-    body.setAttribute('data-theme',newTheme);
-    localStorage.setItem('theme',newTheme);
-    toggleBtn.textContent=newTheme==='light'?'Dark Mode':'Light Mode';
+  const body = document.body;
+  const toggle = document.getElementById('theme-toggle');
+  if(localStorage.getItem('theme') === 'dark') body.classList.add('dark-mode');
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
   });
 
-  // Fade-up animations
-  const faders=document.querySelectorAll('.fade-up');
-  const observer=new IntersectionObserver((entries,observer)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target);}
-    });
-  },{threshold:0.2});
-  faders.forEach(fader=>observer.observe(fader));
-
-  // Particle Background
-  tsParticles.load("tsparticles", {
-    fullScreen: { enable: true, zIndex: -1 },
-    particles: {
-      number: { value: 60 },
-      color: { value: ["#3b82f6","#60a5fa","#93c5fd"] },
-      shape: { type: "circle" },
-      opacity: { value: 0.7 },
-      size: { value: { min: 2, max: 6 } },
-      move: { enable: true, speed: 1, outModes: "bounce" },
-      links: { enable: true, distance: 120, color: "#60a5fa", opacity: 0.3, width: 1 }
-    },
-    interactivity: {
-      events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
-      modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
-    },
-    detectRetina: true
+  // Initialize Particles.js
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 60 },
+      "size": { "value": 3 },
+      "move": { "speed": 2 },
+      "line_linked": { "enable": true }
+    }
   });
 
-  // Quiz Data
-  const quizData=[
-    {question:"Digital marketing helps grow businesses online.",answer:"True",difficulty:"Easy"},
-    {question:"Quantum computing uses classical bits only.",answer:"False",difficulty:"Medium"},
-    {question:"Portfolio blogs help showcase skills.",answer:"True",difficulty:"Easy"},
-    {question:"Confetti effects are used for gamification.",answer:"True",difficulty:"Medium"},
-    {question:"Dark mode should not persist across reloads.",answer:"False",difficulty:"Hard"}
-  ];
-  const quizContainer=document.getElementById('quiz-cards');
-  const progressBar=document.getElementById('progress-bar');
-  const scoreEl=document.getElementById('score');
-  const totalEl=document.getElementById('total');
-  let score=0,answered=0;
-  totalEl.textContent=quizData.length;
-
-  quizData.forEach((q,index)=>{
-    const card=document.createElement('div');
-    card.className='bg-white p-6 rounded shadow transition-transform duration-300 hover:scale-105 fade-up relative sparkle';
-    card.style.transitionDelay=`${0.1*index}s`;
-    card.innerHTML=`
-      <h3 class="font-bold text-xl mb-2">Question ${index+1} (${q.difficulty})</h3>
-      <p>${q.question}</p>
-      <div class="mt-2 space-x-2">
-        <button class="quiz-btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">True</button>
-        <button class="quiz-btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">False</button>
-      </div>
-    `;
-    quizContainer.appendChild(card);
-
-    const buttons=card.querySelectorAll('.quiz-btn');
-    buttons.forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const correct=btn.textContent===q.answer;
-        card.classList.add(correct?'bg-green-200':'bg-red-200','scale-105');
-        setTimeout(()=>card.classList.remove('bg-green-200','bg-red-200','scale-105'),800);
-        if(correct) score++;
-        scoreEl.textContent=score;
-        answered++;
-        progressBar.style.width=(answered/quizData.length*100)+'%';
-        btn.parentElement.querySelectorAll('button').forEach(b=>b.disabled=true);
-        if(answered===quizData.length){confetti({particleCount:200,spread:80,origin:{y:0.6}});alert('🎉 Quiz Completed! 🎉');}
-      });
+  // Quiz Functionality
+  const options = document.querySelectorAll('.quiz-option');
+  let score = 0;
+  let progress = 0;
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      if(option.dataset.correct === "true") {
+        score += 1;
+        confetti();
+      }
+      progress += 1;
+      document.getElementById('quiz-progress').innerText = `Progress: ${progress}/1`;
+      document.getElementById('quiz-score').innerText = `Score: ${score}`;
     });
   });
+
+  // Confetti
+  const confettiCanvas = document.getElementById('confetti-canvas');
+  function confetti() {
+    confettiCanvas.style.display = 'block';
+    confetti.create(confettiCanvas, { resize: true })({ particleCount: 100, spread: 70 });
+    setTimeout(() => confettiCanvas.style.display = 'none', 2000);
+  }
 </script>
 </body>
 </html>
+
