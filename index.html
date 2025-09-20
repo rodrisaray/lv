@@ -4,25 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rodrisa Ray - Digital Marketing & Interactive Learning</title>
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <!-- TailwindCSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- AOS Animations -->
+
+<!-- Animate on Scroll -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<!-- Canvas Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 <style>
   body { font-family: 'Roboto', sans-serif; transition: background 0.3s, color 0.3s; }
   .dark-mode { background: #121212; color: #f5f5f5; }
   .quiz-card { transition: transform 0.3s; }
-  .quiz-card:hover { transform: scale(1.05); }
+  .quiz-card:hover { transform: scale(1.03); }
   .confetti { pointer-events: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 9999; }
-  /* Sparkles */
   .sparkle { position: absolute; width: 5px; height: 5px; background: #FFD700; border-radius: 50%; opacity: 0; animation: sparkle 2s infinite; }
   @keyframes sparkle {
     0% { opacity: 0; transform: translate(0,0) scale(0.5); }
-    50% { opacity: 1; transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(1); }
+    50% { opacity: 1; transform: translate(var(--x), var(--y)) scale(1); }
     100% { opacity: 0; transform: translate(0,0) scale(0.5); }
   }
 </style>
@@ -34,57 +41,52 @@
 
 <!-- Dark/Light Mode Toggle -->
 <div class="fixed top-4 right-4 z-50">
-  <button id="theme-toggle" class="bg-gray-200 dark:bg-gray-700 p-2 rounded shadow">
-    Toggle Dark/Light
-  </button>
+  <button id="theme-toggle" class="bg-gray-200 dark:bg-gray-700 p-2 rounded shadow">Toggle Dark/Light</button>
 </div>
 
 <!-- Hero Section -->
 <section class="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden" data-aos="fade-up">
-  <h1 class="text-5xl font-bold mb-4 relative z-10">Rodrisa Ray</h1>
-  <p class="text-xl mb-6 max-w-xl relative z-10">Empowering youth with Digital Marketing & Interactive Learning.</p>
+  <h1 class="text-4xl sm:text-5xl font-bold mb-4 relative z-10">Rodrisa Ray</h1>
+  <p class="text-lg sm:text-xl mb-6 max-w-xl relative z-10">Empowering youth with Digital Marketing & Interactive Learning.</p>
   <a href="#services" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition relative z-10">Explore Services</a>
-  <!-- Sparkles -->
-  <div class="absolute inset-0">
-    <div id="hero-sparkles"></div>
-  </div>
+  <div class="absolute inset-0" id="hero-sparkles"></div>
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-20 px-4 max-w-6xl mx-auto" data-aos="fade-right">
-  <h2 class="text-3xl font-bold mb-6">About Us</h2>
-  <p class="mb-4">Rodrisa Ray is a platform dedicated to educating youth in digital marketing and interactive learning. Our mission is to inspire creativity, critical thinking, and real-world skills that empower the next generation of digital leaders.</p>
-  <p>We combine innovative courses, interactive quizzes, and hands-on projects to create a fun, engaging learning experience for students and young professionals worldwide.</p>
+<section id="about" class="py-16 sm:py-20 px-4 max-w-6xl mx-auto" data-aos="fade-right">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-6">About Us</h2>
+  <p class="mb-4">Rodrisa Ray educates youth in digital marketing and interactive learning. We inspire creativity, critical thinking, and real-world skills that empower the next generation of digital leaders.</p>
+  <p>We combine innovative courses, interactive quizzes, and hands-on projects to create a fun, engaging learning experience for students worldwide.</p>
 </section>
 
 <!-- Services Section -->
-<section id="services" class="py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-left">
-  <h2 class="text-3xl font-bold mb-12 text-center">Our Services</h2>
-  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<section id="services" class="py-16 sm:py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-left">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">Our Services</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
     <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition">
       <h3 class="text-xl font-semibold mb-2">Digital Marketing Courses</h3>
       <p>Learn SEO, social media, content marketing, and analytics with interactive lessons designed for youth.</p>
     </div>
     <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition">
       <h3 class="text-xl font-semibold mb-2">Interactive Quizzes</h3>
-      <p>Test your knowledge with multi-level quizzes featuring progress bars, animated scores, and confetti celebrations.</p>
+      <p>Multi-level quizzes with progress bars, animated scores, and confetti celebrations to make learning fun.</p>
     </div>
     <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition">
       <h3 class="text-xl font-semibold mb-2">Portfolio & Mentorship</h3>
-      <p>Showcase your projects, get feedback, and join a community of like-minded youth eager to grow their digital skills.</p>
+      <p>Showcase your projects, get feedback, and join a youth community to grow digital skills.</p>
     </div>
   </div>
 </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="py-20 px-4 max-w-6xl mx-auto relative" data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-12 text-center">Youth Empowerment Portfolio</h2>
-  <div class="grid md:grid-cols-3 gap-8">
+<!-- Portfolio Pages Section -->
+<section id="portfolio" class="py-16 sm:py-20 px-4 max-w-6xl mx-auto relative" data-aos="fade-up">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">Youth Empowerment Portfolio</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
     <div class="rounded-lg overflow-hidden shadow-lg relative portfolio-card">
       <img src="https://source.unsplash.com/400x300/?students,team" alt="Project 1" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="font-semibold text-lg mb-2">Social Media Campaign</h3>
-        <p>Guided youth to create impactful campaigns for small local businesses.</p>
+        <p>Guided youth to create impactful campaigns for local businesses.</p>
       </div>
     </div>
     <div class="rounded-lg overflow-hidden shadow-lg relative portfolio-card">
@@ -98,25 +100,33 @@
       <img src="https://source.unsplash.com/400x300/?coding,students" alt="Project 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="font-semibold text-lg mb-2">Youth Blog Platform</h3>
-        <p>Created a space for students to share projects, ideas, and inspire peers globally.</p>
+        <p>Created a space for students to share projects and inspire peers globally.</p>
       </div>
     </div>
   </div>
-  <!-- Sparkles -->
   <div class="absolute inset-0 pointer-events-none" id="portfolio-sparkles"></div>
 </section>
 
-<!-- Dynamic Blog Section -->
-<section id="blog" class="py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-right">
-  <h2 class="text-3xl font-bold mb-12 text-center">Youth Empowerment Blog</h2>
-  <div id="blog-container" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <!-- Blog posts loaded dynamically -->
+<!-- Social Media Section -->
+<section id="social" class="py-16 sm:py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-right">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">Follow Us on Social Media</h2>
+  <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+    <a href="https://facebook.com" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded shadow transition">Facebook</a>
+    <a href="https://twitter.com" target="_blank" class="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded shadow transition">Twitter</a>
+    <a href="https://instagram.com" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded shadow transition">Instagram</a>
+    <a href="https://linkedin.com" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded shadow transition">LinkedIn</a>
   </div>
 </section>
 
-<!-- Interactive Multi-Level Quiz -->
-<section id="quiz" class="py-20 px-4 max-w-3xl mx-auto text-center" data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-8">Test Your Knowledge!</h2>
+<!-- Dynamic Blog Section -->
+<section id="blog" class="py-16 sm:py-20 px-4 bg-gray-50 dark:bg-gray-900" data-aos="fade-left">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-12 text-center">Youth Empowerment Blog</h2>
+  <div id="blog-container" class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto"></div>
+</section>
+
+<!-- Multi-Level Quiz Section -->
+<section id="quiz" class="py-16 sm:py-20 px-4 max-w-3xl mx-auto text-center" data-aos="fade-up">
+  <h2 class="text-2xl sm:text-3xl font-bold mb-8">Test Your Knowledge!</h2>
   <div id="quiz-card" class="quiz-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
     <p id="quiz-question" class="mb-4 text-lg"></p>
     <div id="quiz-options" class="grid gap-4"></div>
@@ -128,139 +138,111 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-10 text-center bg-gray-200 dark:bg-gray-800 mt-20">
+<footer class="py-10 text-center bg-gray-200 dark:bg-gray-800 mt-16">
   <p>© 2025 Rodrisa Ray. Empowering Youth in Digital Marketing & Interactive Learning.</p>
 </footer>
 
 <!-- Confetti Canvas -->
 <canvas id="confetti-canvas" class="confetti"></canvas>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-  // Initialize AOS
   AOS.init();
 
   // Dark/Light Mode
   const body = document.body;
   const toggle = document.getElementById('theme-toggle');
-  if(localStorage.getItem('theme') === 'dark') body.classList.add('dark-mode');
-  toggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  if(localStorage.getItem('theme')==='dark') body.classList.add('dark-mode');
+  toggle.addEventListener('click',()=>{ 
+    body.classList.toggle('dark-mode'); 
+    localStorage.setItem('theme', body.classList.contains('dark-mode')?'dark':'light'); 
   });
 
-  // Initialize Particles.js
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 60 },
-      "size": { "value": 3 },
-      "move": { "speed": 2 },
-      "line_linked": { "enable": true }
-    }
-  });
+  // Particles.js
+  particlesJS("particles-js",{particles:{number:{value:60},size:{value:3},move:{speed:2},line_linked:{enable:true}}});
 
   // Confetti
-  const confettiCanvas = document.getElementById('confetti-canvas');
-  function confettiEffect() {
-    confettiCanvas.style.display = 'block';
-    confetti.create(confettiCanvas, { resize: true })({ particleCount: 100, spread: 70 });
-    setTimeout(() => confettiCanvas.style.display = 'none', 2000);
+  const confettiCanvas=document.getElementById('confetti-canvas');
+  function confettiEffect(){ 
+    confettiCanvas.style.display='block'; 
+    confetti.create(confettiCanvas,{resize:true})({particleCount:100,spread:70}); 
+    setTimeout(()=>confettiCanvas.style.display='none',2000); 
   }
 
   // Multi-Level Quiz
-  const quizData = [
-    {
-      question: "What is the main goal of digital marketing?",
-      options: ["Reach & engage audience", "Only sell products", "Make social media posts"],
-      correct: 0
-    },
-    {
-      question: "Which platform is best for professional networking?",
-      options: ["Instagram", "LinkedIn", "TikTok"],
-      correct: 1
-    },
-    {
-      question: "What does SEO stand for?",
-      options: ["Search Engine Optimization", "Social Engagement Online", "Secure Email Operation"],
-      correct: 0
-    }
+  const quizData=[
+    {question:"What is the main goal of digital marketing?",options:["Reach & engage audience","Only sell products","Make social media posts"],correct:0},
+    {question:"Which platform is best for professional networking?",options:["Instagram","LinkedIn","TikTok"],correct:1},
+    {question:"What does SEO stand for?",options:["Search Engine Optimization","Social Engagement Online","Secure Email Operation"],correct:0}
   ];
 
-  let currentQuestion = 0;
-  let score = 0;
+  let currentQuestion = Number(localStorage.getItem('quizCurrent')) || 0;
+  let score = Number(localStorage.getItem('quizScore')) || 0;
 
-  const questionEl = document.getElementById('quiz-question');
-  const optionsEl = document.getElementById('quiz-options');
-  const progressEl = document.getElementById('quiz-progress');
-  const scoreEl = document.getElementById('quiz-score');
+  const questionEl=document.getElementById('quiz-question');
+  const optionsEl=document.getElementById('quiz-options');
+  const progressEl=document.getElementById('quiz-progress');
+  const scoreEl=document.getElementById('quiz-score');
 
-  function loadQuestion() {
-    if(currentQuestion >= quizData.length) {
-      questionEl.innerText = "Quiz Completed!";
-      optionsEl.innerHTML = "";
-      return;
+  function loadQuestion(){ 
+    if(currentQuestion>=quizData.length){ 
+      questionEl.innerText="Quiz Completed!"; optionsEl.innerHTML=""; 
+      localStorage.removeItem('quizCurrent'); localStorage.removeItem('quizScore');
+      return; 
     }
-    const q = quizData[currentQuestion];
-    questionEl.innerText = q.question;
+    const q = quizData[currentQuestion]; 
+    questionEl.innerText = q.question; 
     optionsEl.innerHTML = "";
-    q.options.forEach((opt, idx) => {
-      const btn = document.createElement('button');
-      btn.className = 'quiz-option bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition';
+    q.options.forEach((opt,idx)=>{
+      const btn=document.createElement('button');
+      btn.className='quiz-option bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition';
       btn.innerText = opt;
-      btn.addEventListener('click', () => {
-        if(idx === q.correct) { score++; confettiEffect(); }
-        currentQuestion++;
+      btn.addEventListener('click',()=>{
+        if(idx===q.correct){ score++; confettiEffect(); }
+        currentQuestion++; 
+        localStorage.setItem('quizCurrent',currentQuestion);
+        localStorage.setItem('quizScore',score);
         loadQuestion();
-        progressEl.innerText = `Progress: ${currentQuestion}/${quizData.length}`;
-        scoreEl.innerText = `Score: ${score}`;
+        progressEl.innerText=`Progress: ${currentQuestion}/${quizData.length}`;
+        scoreEl.innerText=`Score: ${score}`;
       });
       optionsEl.appendChild(btn);
     });
-    progressEl.innerText = `Progress: ${currentQuestion}/${quizData.length}`;
-    scoreEl.innerText = `Score: ${score}`;
+    progressEl.innerText=`Progress: ${currentQuestion}/${quizData.length}`;
+    scoreEl.innerText=`Score: ${score}`;
   }
   loadQuestion();
 
   // Sparkles
-  function createSparkles(containerId, count = 30) {
-    const container = document.getElementById(containerId);
+  function createSparkles(containerId,count=30){
+    const container=document.getElementById(containerId);
     for(let i=0;i<count;i++){
-      const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-      sparkle.style.setProperty('--x', Math.random()*200-100);
-      sparkle.style.setProperty('--y', Math.random()*200-100);
-      sparkle.style.top = Math.random()*100 + '%';
-      sparkle.style.left = Math.random()*100 + '%';
-      sparkle.style.animationDelay = `${Math.random()*2}s`;
+      const sparkle=document.createElement('div'); sparkle.className='sparkle';
+      sparkle.style.setProperty('--x', Math.random()*200-100+'px');
+      sparkle.style.setProperty('--y', Math.random()*200-100+'px');
+      sparkle.style.top=Math.random()*100+'%'; sparkle.style.left=Math.random()*100+'%';
+      sparkle.style.animationDelay=Math.random()*2+'s';
       container.appendChild(sparkle);
     }
   }
-  createSparkles('hero-sparkles', 40);
-  createSparkles('portfolio-sparkles', 30);
+  createSparkles('hero-sparkles',40);
+  createSparkles('portfolio-sparkles',30);
 
-  // Dynamic Blog Fetching
-  const blogContainer = document.getElementById('blog-container');
-  async function fetchBlogs() {
-    try {
-      const res = await fetch('https://api.npoint.io/6e2a6f7b6f9e0f0c3f78'); // Sample JSON API
-      const blogs = await res.json();
-      blogs.forEach(blog => {
-        const card = document.createElement('div');
-        card.className = 'bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition';
-        card.innerHTML = `<h3 class="font-semibold text-xl mb-2">${blog.title}</h3>
-                          <p>${blog.description}</p>
-                          <a href="${blog.url}" class="text-blue-500 hover:underline mt-2 inline-block">Read More</a>`;
+  // Dynamic Blog Loading
+  const blogContainer=document.getElementById('blog-container');
+  async function fetchBlogs(){
+    try{
+      const res=await fetch('https://api.npoint.io/6e2a6f7b6f9e0f0c3f78');
+      const blogs=await res.json();
+      blogs.forEach(blog=>{
+        const card=document.createElement('div');
+        card.className='bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition';
+        card.innerHTML=`<h3 class="font-semibold text-xl mb-2">${blog.title}</h3><p>${blog.description}</p><a href="${blog.url}" class="text-blue-500 hover:underline mt-2 inline-block" target="_blank">Read More</a>`;
         blogContainer.appendChild(card);
       });
-    } catch(e) {
-      blogContainer.innerHTML = "<p class='col-span-3 text-center'>Failed to load blogs.</p>";
-    }
+    }catch(e){ blogContainer.innerHTML="<p class='col-span-3 text-center'>Failed to load blogs.</p>"; }
   }
   fetchBlogs();
 </script>
 </body>
 </html>
-
-
