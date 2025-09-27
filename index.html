@@ -1,77 +1,175 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rodrisa Ray | Digital Marketing Education</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rodrisa Ray | Digital Marketing & Youth Empowerment</title>
+  <meta name="description" content="Digital marketing, youth empowerment, portfolio, and free resources by Rodrisa Ray.">
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Fade-in */
+    .fade-in { opacity:0; transform: translateY(20px); transition: all 0.6s ease; }
+    .fade-in.show { opacity:1; transform: translateY(0); }
+
+    /* Service icons */
+    .service-icon { font-size:2rem; color:#4F46E5; transition: transform 0.3s,color 0.3s; }
+    .service-card:hover .service-icon { transform:rotate(15deg) scale(1.2); color:#9333EA; }
+
+    /* Social sparkle */
+    @keyframes sparkle { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.3);opacity:0.7;} }
+    .social-link:hover { animation:sparkle 0.6s ease-in-out infinite alternate; }
+
+    /* CTA neon gradient */
+    .cta-button {
+      display:inline-block; padding:0.75rem 1.5rem; border-radius:9999px;
+      font-weight:600; color:white; text-decoration:none;
+      background:linear-gradient(270deg,#4F46E5,#9333EA,#8B5CF6,#4F46E5);
+      background-size:800% 800%;
+      animation:gradientMove 6s ease infinite,neonGlow 1.5s ease-in-out infinite alternate;
+      box-shadow:0 0 10px #9333EA,0 0 20px #9333EA,0 0 30px #9333EA;
+      transition:transform 0.3s;
+    }
+    .cta-button:hover{transform:scale(1.05);}
+    @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes neonGlow{0%{box-shadow:0 0 10px #9333EA,0 0 20px #9333EA}50%{box-shadow:0 0 20px #C084FC,0 0 30px #C084FC}100%{box-shadow:0 0 10px #9333EA,0 0 20px #9333EA}}
+
+    /* Hero gradient */
+    #hero{position:relative;overflow:hidden;min-height:100vh;}
+    #hero-gradient{background:linear-gradient(270deg,#4F46E5,#9333EA,#8B5CF6,#4F46E5);background-size:800% 800%;animation:heroGradient 10s ease infinite;position:absolute;inset:0;z-index:0;}
+    @keyframes heroGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    #hero-content{position:relative;z-index:10;text-align:center;padding:2rem;}
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-body">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-<!-- Hero Section -->
-<section class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white relative">
-  <h1 class="text-5xl font-heading font-bold mb-6">Rodrisa Ray</h1>
-  <p class="text-xl mb-8">Learn. Create. Shine Online with Modern Digital Marketing</p>
-  <div class="flex gap-4">
-    <a href="#services" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded transition">Explore Courses</a>
-    <a href="#contact" class="bg-white text-gray-900 hover:bg-gray-200 font-bold py-3 px-6 rounded transition">Contact Us</a>
-  </div>
-</section>
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full bg-white shadow z-50">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="font-bold text-indigo-600 text-lg">Rodrisa Ray</h1>
+      <div class="space-x-6">
+        <a href="#hero" class="hover:text-indigo-600">Home</a>
+        <a href="#about" class="hover:text-indigo-600">About</a>
+        <a href="#services" class="hover:text-indigo-600">Services</a>
+        <a href="#portfolio" class="hover:text-indigo-600">Portfolio</a>
+        <a href="#testimonials" class="hover:text-indigo-600">Testimonials</a>
+        <a href="#cta" class="hover:text-indigo-600">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- About Section -->
-<section id="about" class="py-20 max-w-6xl mx-auto px-6">
-  <h2 class="text-4xl font-heading text-center mb-10">About Us</h2>
-  <p class="text-lg text-center max-w-3xl mx-auto">Rodrisa Ray empowers youth to master digital marketing through interactive learning, hands-on projects, and real-life case studies. Our mission is to help you think smart, act fast, and shine online.</p>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="py-20 bg-gray-100">
-  <h2 class="text-4xl font-heading text-center mb-10">Our Services</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
-    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform">
-      <h3 class="font-heading text-2xl mb-2">Digital Marketing Basics</h3>
-      <p>Learn social media, SEO, and branding fundamentals.</p>
+  <!-- Hero -->
+  <section id="hero" class="flex items-center">
+    <div id="hero-gradient"></div>
+    <div id="hero-content" class="flex flex-col justify-center items-center min-h-screen text-white">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in">Digital Marketing for the Future</h1>
+      <p class="text-lg md:text-2xl mb-6 fade-in">Empowering Youth with Smart Tools & Strategies</p>
+      <a href="#cta" class="cta-button fade-in">Start Today</a>
     </div>
-    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform">
-      <h3 class="font-heading text-2xl mb-2">Content Creation</h3>
-      <p>Create engaging blogs, videos, and graphics.</p>
+    <div id="tsparticles" style="position:absolute;inset:0;z-index:5;"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-6 max-w-5xl mx-auto text-center fade-in">
+    <h2 class="text-3xl font-bold mb-4">About Us</h2>
+    <p>We help youth and businesses grow with digital marketing education, critical thinking, and creative storytelling. Our mission is to make technology simple and useful for everyone.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 px-6 bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold mb-10 fade-in">Services</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="p-6 bg-white rounded-xl shadow service-card fade-in">
+        <i class="fas fa-bullhorn service-icon mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Marketing Campaigns</h3>
+        <p>Reach your audience with smart and creative ad campaigns.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow service-card fade-in">
+        <i class="fas fa-lightbulb service-icon mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Creative Strategy</h3>
+        <p>We design strategies that connect ideas with real business results.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow service-card fade-in">
+        <i class="fas fa-graduation-cap service-icon mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Youth Training</h3>
+        <p>Workshops and eBooks to empower the next generation of leaders.</p>
+      </div>
     </div>
-    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform">
-      <h3 class="font-heading text-2xl mb-2">Analytics & Data</h3>
-      <p>Understand metrics, data-driven decisions, and insights.</p>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-20 px-6 text-center fade-in">
+    <h2 class="text-3xl font-bold mb-6">Portfolio</h2>
+    <p class="mb-6">Check out our featured projects and success stories.</p>
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="p-4 bg-white rounded shadow">🌐 Project 1</div>
+      <div class="p-4 bg-white rounded shadow">📱 Project 2</div>
+      <div class="p-4 bg-white rounded shadow">🎯 Project 3</div>
     </div>
-    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl hover:scale-105 transition transform">
-      <h3 class="font-heading text-2xl mb-2">Social Media Growth</h3>
-      <p>Boost reach and engagement strategically.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 px-6 bg-gray-100 text-center fade-in">
+    <h2 class="text-3xl font-bold mb-6">What Clients Say</h2>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <blockquote class="bg-white p-6 rounded shadow">“Rodrisa Ray helped us triple our reach in 3 months!” – Client A</blockquote>
+      <blockquote class="bg-white p-6 rounded shadow">“The workshops were simple, fun, and effective.” – Client B</blockquote>
+      <blockquote class="bg-white p-6 rounded shadow">“Our brand has never been stronger.” – Client C</blockquote>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="py-20 max-w-6xl mx-auto px-6">
-  <h2 class="text-4xl font-heading text-center mb-10">Portfolio</h2>
-  <div class="flex flex-wrap gap-6 justify-center">
-    <div class="bg-white rounded-lg shadow-md p-6 w-80 hover:shadow-xl transition">Student Campaigns</div>
-    <div class="bg-white rounded-lg shadow-md p-6 w-80 hover:shadow-xl transition">Blog Highlights</div>
-    <div class="bg-white rounded-lg shadow-md p-6 w-80 hover:shadow-xl transition">Data Projects</div>
-  </div>
-</section>
+  <!-- CTA -->
+  <section id="cta" class="py-20 px-6 bg-indigo-600 text-white text-center fade-in">
+    <h2 class="text-3xl font-bold mb-4">Get Your Free eBook</h2>
+    <p class="mb-6">Subscribe to our newsletter and download “Think Smart, Speak Clear, Shine Online”.</p>
+    <form action="https://YOUR-MAILCHIMP-URL" method="post" target="_blank" class="flex flex-col sm:flex-row gap-2 justify-center mb-6">
+      <input type="email" name="EMAIL" placeholder="Enter your email" required class="px-4 py-2 rounded border text-gray-800">
+      <button type="submit" class="cta-button">Subscribe</button>
+    </form>
+    <a href="your-ebook-link.pdf" target="_blank" class="bg-white text-indigo-600 px-6 py-3 rounded-full shadow hover:bg-gray-200">📖 Download eBook</a>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-gray-100">
-  <h2 class="text-4xl font-heading text-center mb-10">Contact Us</h2>
-  <form class="flex flex-col gap-4 max-w-lg mx-auto">
-    <input type="text" placeholder="Your Name" class="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-    <input type="email" placeholder="Email" class="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-    <textarea placeholder="Message" class="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded transition">Send Message</button>
-  </form>
-</section>
+  <!-- Social -->
+  <section id="social" class="py-12 px-6 text-center fade-in">
+    <h2 class="text-2xl font-bold mb-6">Follow Us</h2>
+    <div class="flex justify-center gap-6 text-lg flex-wrap">
+      <a href="#" class="social-link hover:text-blue-600">Facebook</a>
+      <a href="#" class="social-link hover:text-pink-500">Instagram</a>
+      <a href="#" class="social-link hover:text-blue-500">LinkedIn</a>
+      <a href="#" class="social-link hover:text-red-500">YouTube</a>
+      <a href="#" class="social-link hover:text-sky-500">Twitter</a>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-10 px-6 text-center">
-  &copy; 2025 Rodrisa Ray. All Rights Reserved.
-</footer>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>© 2025 Rodrisa Ray. All rights reserved.</p>
+    <p class="text-sm mt-2">Built for Cloudflare Free Plan | Responsive on All Devices</p>
+  </footer>
 
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      particles: { number:{value:60,density:{enable:true,area:800}}, color:{value:"#fff"}, shape:{type:"circle"},
+        opacity:{value:0.7,random:true}, size:{value:2,random:true}, move:{enable:true,speed:1,outModes:{default:"out"}},
+        links:{enable:false} },
+      interactivity:{ events:{ onhover:{ enable:true, mode:"repulse" } }, modes:{ repulse:{ distance:100 } } },
+      detectRetina:true
+    });
+  </script>
+
+  <!-- Fade-in on scroll -->
+  <script>
+    const fadeElems=document.querySelectorAll('.fade-in');
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('show'); });
+    },{threshold:0.1});
+    fadeElems.forEach(el=>observer.observe(el));
+  </script>
 </body>
 </html>
